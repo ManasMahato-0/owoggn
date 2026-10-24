@@ -5,7 +5,7 @@ A web app that helps a UK utility's day-ahead trading desk answer two questions 
 1. **What did the latest wind forecast say when I had to buy?** For any delivery day, it shows the most recent Elexon WINDFOR forecast published before the D-1 decision cutoff, with a P10–P90 likely-range band.
 2. **How far can I trust it?** It shows forecast error (MAE, RMSE, bias, nMAE, error quantiles) at the chosen cutoff, how error grows with lead time, how it varies by hour of day, and a P90 "extra cover" figure that turns the error into MW to procure.
 
-**Live app:** _<add Vercel URL>_
+**Live app:** https://owoggn.vercel.app
 
 Data: Elexon BMRS [FUELHH](https://bmrs.elexon.co.uk/api-documentation/endpoint/datasets/FUELHH/stream) (actual generation, `fuelType=WIND`) and [WINDFOR](https://bmrs.elexon.co.uk/api-documentation/endpoint/datasets/WINDFOR/stream) (wind forecasts). National level only.
 
@@ -83,7 +83,7 @@ frontend/
 api/index.py           Vercel serverless entry: re-exports the FastAPI app
 vercel.json            Vercel build + /api rewrite + bundles backend/ into the function
 docker-compose.yml     backend + frontend, app on :8080
-requirements.txt       Root pointer to backend requirements (Vercel Python runtime)
+requirements.txt       Copy of backend deps for the Vercel Python runtime (keep in sync)
 ```
 
 ---
